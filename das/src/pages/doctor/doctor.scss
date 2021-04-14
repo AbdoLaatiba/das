@@ -90,7 +90,14 @@ $mobile_size: 670px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $third_color;
+  background-image: linear-gradient(
+    to left bottom,
+    #026c71,
+    #147a7f,
+    #22888d,
+    #2e969b,
+    #39a5aa
+  );
 
   form {
     width: 70%;

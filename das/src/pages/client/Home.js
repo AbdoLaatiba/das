@@ -14,18 +14,21 @@ function Home() {
   let { path, url } = useRouteMatch();
   return (
     <div className="App">
-      <Navbar />
       <Route exact path={path} component={Content} />
       <Route path={`${path}doc/register`}>
+        <Navbar />
         <Doctorregister />
       </Route>
       <Route path={`${path}signin`}>
+        <Navbar />
         <Signin />
       </Route>
       <Route path={`${path}patient/register`}>
+        <Navbar />
         <Patientregister />
       </Route>
       <Route path={`${path}doc/profile`}>
+        <Navbar />
         <Profile />
       </Route>
     </div>

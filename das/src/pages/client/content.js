@@ -3,6 +3,7 @@ import DisplayResults from "./displayResults";
 import Doctors from "./doctors";
 import Footer from "./footer";
 import Header from "./header";
+import Navbar from "./nav-bar";
 
 const axios = require("axios");
 
@@ -88,6 +89,7 @@ export default class Content extends Component {
   render() {
     return (
       <div>
+        <Navbar />
         <Header
           specialties={this.state.specialties}
           doctors={this.state.doctors}
