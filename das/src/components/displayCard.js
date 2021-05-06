@@ -1,5 +1,6 @@
 import React from "react";
 import doctor from "../assets/doctor.jpg";
+import Modal from "../pages/client/Modal";
 
 export default function DisplayCard({ doc }) {
   return (
@@ -35,7 +36,8 @@ export default function DisplayCard({ doc }) {
               return d.Slots.map((s) => {
                 return (
                   <div className="slot">
-                    <span>{s.time}</span>
+                    {/* <span>{s.time}</span> */}
+                    <Modal text={s.time} />
                   </div>
                 );
               });

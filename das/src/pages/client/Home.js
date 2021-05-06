@@ -1,3 +1,6 @@
+import React, { Component } from "react";
+
+import jwtDecode from "jwt-decode";
 import "../../App.css";
 import Navbar from "./nav-bar";
 
@@ -8,29 +11,51 @@ import Doctorcard from "../../components/doctor-card";
 import Signin from "./sign-in";
 import Patientregister from "../patient/patient-register";
 import Profile from "../doctor/profile";
+import Logout from "./logout";
+import AppMod from "./Modal";
 
-function Home() {
-  let { path, url } = useRouteMatch();
-  return (
-    <div className="App">
-      <Navbar />
-      <Switch>
-        <Route exact path={path} component={Content} />
-        <Route path={`${path}doc/register`}>
-          <Doctorregister />
-        </Route>
-        <Route path={`${path}signin`}>
-          <Signin />
-        </Route>
-        <Route path={`${path}patient/register`}>
-          <Patientregister />
-        </Route>
-        <Route path={`${path}doc/profile`}>
-          <Profile />
-        </Route>
-      </Switch>
-    </div>
-  );
+class Home extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+  componentDidMount() {
+    try {
+      const jwt = localStorage.getItem("token");
+      const user = jwtDecode(jwt);
+      this.setState({ user });
+    } catch {}
+  }
+  render() {
+    let { path, url } = this.props.match;
+    return (
+      <div className="App">
+        <Navbar user={this.state.user} />
+        <Switch>
+          <Route exact path={path} component={Content} />
+          <Route path={`${path}doc/register`}>
+            <Doctorregister />
+          </Route>
+          <Route path={`${path}signin`}>
+            <Signin />
+          </Route>
+          <Route path={`${path}logout`}>
+            <Logout />
+          </Route>
+          <Route path={`${path}patient/register`}>
+            <Patientregister />
+          </Route>
+          <Route path={`${path}doc/profile`}>
+            <Profile />
+          </Route>
+          <Route path={`${path}modal`}>
+            <AppMod />
+          </Route>
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default Home;
