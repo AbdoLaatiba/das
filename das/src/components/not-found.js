@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Adddoc() {
+export default function NotFound() {
   return (
     <div>
-      <h1>add doctor</h1>
+      <h1>Page Not Found</h1>
     </div>
   );
 }

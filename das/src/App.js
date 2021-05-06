@@ -1,20 +1,20 @@
 import "./App.css";
-// import Footer from "./pages/footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/client/Home";
-import Admin from "./pages/admin/admin";
-import Dashboard from "./pages/doctor/dashboard";
+
 import Patient from "./pages/patient/patient";
+import Doctor from "./pages/doctor/doctor";
+import Admin from "./pages/admin/admin";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" component={Home} />
           <Route path="/admin" component={Admin} />
-          {/* <Route path="/doctor" component={Dashboard} /> */}
-          <Route path="/patient" component={Patient} />
+          <Route path="/doctor/dashboard" component={Doctor} />
+          <Route path="/patient/dashboard" component={Patient} />
+          <Route path="/" component={Home} />
         </Switch>
       </Router>
     </div>

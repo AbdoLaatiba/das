@@ -90,14 +90,7 @@ $mobile_size: 670px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(
-    to left bottom,
-    #026c71,
-    #147a7f,
-    #22888d,
-    #2e969b,
-    #39a5aa
-  );
+  background-color: $third_color;
 
   form {
     width: 70%;
@@ -153,7 +146,7 @@ $mobile_size: 670px;
       input[type="submit"] {
         padding: 1rem;
         display: block;
-        width: 95%;
+        width: 90%;
         margin-top: 1rem;
         background-color: $primary_color;
         color: #fff;
@@ -161,7 +154,7 @@ $mobile_size: 670px;
         border-radius: 10px;
         font-size: 1rem;
         cursor: pointer;
-
+ 
         &:focus {
           outline: none;
         }
@@ -187,53 +180,106 @@ $mobile_size: 670px;
   }
 }
 
+
+
+
+
+
+
+
 // doctor profile styling start
-.doctor-profile {
-  height: 800px;
+.doctor-profile{
+
+  min-height: 90vh;
   background-color: $bg_color;
-  margin: 0;
-  display: flex;
+  margin:0;
+  display:flex;
   justify-content: center;
   align-items: center;
-  .profile-card {
-    background-color: $white;
-    width: 85%;
-    height: 500px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
+    .profile-card{
+      margin-top: 40px;
+     background-color: $white;
+     width:85%;
+     min-height:500px;
+     border-radius: 20px;
+     display:flex;
+     align-items: center;
 
-    .doctor-profile-img {
-      margin: 50px;
-      width: 45%;
-      img {
-        width: 100%;
-      }
-    }
-    .content-container {
-      width: 50%;
-      margin: 50px;
-      .buttons {
-        display: flex;
-        justify-content: space-evenly;
-        border: 1px black;
-        border-style: none none dashed none;
-        button {
-          margin: 10px;
-          border: none;
-          background: transparent;
+      .doctor-profile-img{
+       text-align: center;
+       align-self:center;
+       margin:25px;
+       flex: 1;
+        img{
+          margin-top:10px;
+          width:100%;
+          border-radius: 20px;
+          box-shadow: 2px 2px 10px black;
+     
         }
       }
-    }
-  }
-}
+    
+      .content-container{
+        flex: 1;
+        margin:10px;
+        .buttons{
+          margin: 0 10px 0 10px;
+          display:flex;
+          justify-content: space-evenly;
+          border: 1px black;
+          border-style:none none dashed none;
+          button{
+            font: 20px bold;
+            margin:10px;
+            border:none;
+            background: transparent;
+          }
+        }
+        .content{
+          min-height: 300px;
+          *{
+            margin:10px;
+          }
+          .about{
+            display:none;
+          }
+          .schedule{
+            display:none;
+            
+            .slot{
+              margin-right: 0;
+              padding:.5em;
+              align-self: center;
+              text-align: center;
+              width:25%;
+              background-color: $primary_color;
+              color:$white;
+            }
+          }
+          .contact{
+            display:none;
+            .fas{
+              font-size: 20px;
+            }
+          }
+          .active{
+            display: flex;
+            flex-direction: column;
+          }
+          .rowed{
+            flex-flow: row wrap;
+          }
+        }
+      }
+   }
 
-@media screen and (max-width: $mobile_size) {
-  .profile-card {
-    flex-direction: column;
-  }
-  .doctor-profile-img {
-    margin: 0;
+  @media screen and (max-width: $mobile_size) {
+    .profile-card{
+      flex-direction: column;
+    }
+    .doctor-profile-img{
+      margin:0;
+    }
   }
 }
 

@@ -89,7 +89,7 @@ export default class Content extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <Header
           specialties={this.state.specialties}
           doctors={this.state.doctors}

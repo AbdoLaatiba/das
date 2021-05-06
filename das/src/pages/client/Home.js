@@ -1,36 +1,34 @@
 import "../../App.css";
 import Navbar from "./nav-bar";
 
-import { Route, Switch, useRouteMatch } from "react-router-dom";
+import { Route, Switch, useRouteMatch, Redirect } from "react-router-dom";
 import Content from "./content";
 import Doctorregister from "../doctor/doctor-register";
 import Doctorcard from "../../components/doctor-card";
 import Signin from "./sign-in";
 import Patientregister from "../patient/patient-register";
 import Profile from "../doctor/profile";
-import Doctorprofile from "../doctor/doctor-profile";
 
 function Home() {
   let { path, url } = useRouteMatch();
   return (
     <div className="App">
-      <Route exact path={path} component={Content} />
-      <Route path={`${path}doc/register`}>
-        <Navbar />
-        <Doctorregister />
-      </Route>
-      <Route path={`${path}signin`}>
-        <Navbar />
-        <Signin />
-      </Route>
-      <Route path={`${path}patient/register`}>
-        <Navbar />
-        <Patientregister />
-      </Route>
-      <Route path={`${path}doc/profile`}>
-        <Navbar />
-        <Profile />
-      </Route>
+      <Navbar />
+      <Switch>
+        <Route exact path={path} component={Content} />
+        <Route path={`${path}doc/register`}>
+          <Doctorregister />
+        </Route>
+        <Route path={`${path}signin`}>
+          <Signin />
+        </Route>
+        <Route path={`${path}patient/register`}>
+          <Patientregister />
+        </Route>
+        <Route path={`${path}doc/profile`}>
+          <Profile />
+        </Route>
+      </Switch>
     </div>
   );
 }

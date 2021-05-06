@@ -9,7 +9,7 @@ import "./admin.scss";
 import AdminAppointment from "./admin-appointments";
 import Administrators from "./administrators";
 
-export default function Admin() {
+export default function Patient() {
   let { path, url } = useRouteMatch();
   return (
     <div className="admindashboard">
